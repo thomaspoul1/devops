@@ -1,0 +1,14 @@
+{
+  "builders": [{
+    "type": "googlecompute",
+    "project": "{{user `proj_id`}}",
+    "base_image_family": "debian-11",
+    "custom_image_name": "custom-debian-{{timestamp}}",
+    "family_name": "debian-custom-family",
+    "location": "europe-west1-b"
+  }],
+  "setup_steps": [{
+    "step_type": "ansible",
+    "configuration_file": "./ansible/deploy.yaml"
+  }]
+}
